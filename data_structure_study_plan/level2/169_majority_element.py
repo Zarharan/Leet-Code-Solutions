@@ -30,6 +30,8 @@
 
 from collections import defaultdict
 class Solution:
+    # Solution 1
+    # Time complexity= O(n) and space complexity= O(n)
     def majorityElement(self, nums: List[int]) -> int:
         num_count = defaultdict(int)
         
@@ -44,4 +46,18 @@ class Solution:
                 result = num
             
         return result
+
+    # Solution 2
+    # Time complexity= O(n) and space complexity= O(1)
+    def majorityElement2(self, nums: List[int]) -> int:
+        
+        counter= 0
+        majority_item= 0
+        
+        for num in nums:
+            if counter== 0:
+                majority_item= num
             
+            counter += 1 if (num==majority_item) else -1
+            
+        return majority_item
